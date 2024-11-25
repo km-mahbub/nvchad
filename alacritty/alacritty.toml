@@ -10,8 +10,9 @@ size = 12
 family = "MesloLGL Nerd Font"
 
 [window]
-decorations = "none"
+#decorations = "none"
 opacity = 0.97
+option_as_alt = "Both"
 
 [window.padding]
 x = 7

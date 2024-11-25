@@ -7,9 +7,9 @@ local options = {
   },
 
   formatters = {
-    ["goimports-reviser"] = {
-      prepend_args = { "-rm-unused" },
-    },
+    -- ["goimports-reviser"] = {
+    -- prepend_args = { "-rm-unused" },
+    -- },
     golines = {
       prepend_args = { "--max-len=80" },
     },
