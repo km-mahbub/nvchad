@@ -8,6 +8,7 @@ local lspconfig = require("lspconfig")
 lspconfig.servers = {
   "lua_ls",
   "gopls",
+  "ts_ls",
 }
 
 -- list of servers configured with default config.
@@ -68,4 +69,16 @@ lspconfig.gopls.setup({
       staticcheck = true,
     },
   },
+})
+
+lspconfig.ts_ls.setup({
+  on_attach = function(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+    on_attach(client, bufnr)
+  end,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 })

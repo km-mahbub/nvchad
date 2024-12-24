@@ -4,6 +4,10 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     go = { "gofumpt", "goimports-reviser", "golines" },
+    typescript = { "prettier" },
+    javascript = { "prettier" },
+    typescriptreact = { "prettier" },
+    javascriptreact = { "prettier" },
   },
 
   formatters = {
