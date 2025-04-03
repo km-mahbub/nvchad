@@ -401,21 +401,21 @@ return {
     dependencies = {
       {
         "microsoft/vscode-js-debug",
-        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
       },
       {
         "mxsdev/nvim-dap-vscode-js",
         config = function()
           require("dap-vscode-js").setup({
             debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-            adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+            adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
           })
         end,
-      }
+      },
     },
     config = function()
       local dap = require("dap")
-      
+
       for _, language in ipairs({ "typescript", "javascript" }) do
         dap.configurations[language] = {
           {
@@ -435,11 +435,11 @@ return {
           {
             type = "pwa-chrome",
             request = "launch",
-            name = "Start Chrome with \"localhost\"",
+            name = 'Start Chrome with "localhost"',
             url = "http://localhost:3000",
             webRoot = "${workspaceFolder}",
-            userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir"
-          }
+            userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
+          },
         }
       end
     end,
@@ -503,5 +503,13 @@ return {
         { "<leader>gg", "<cmd>LazyGit<CR>", desc = "Open LazyGit" },
       },
     },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end,
   },
 }
