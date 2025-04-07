@@ -140,6 +140,7 @@ return {
       },
       "rustaceanvim/neotest",
       "marilari88/neotest-vitest",
+      "nvim-neotest/neotest-jest",
     },
     opts = function(_, opts)
       opts.adapters = opts.adapters or {}
@@ -152,6 +153,7 @@ return {
       }
       opts.adapters["rustaceanvim.neotest"] = {}
       opts.adapters["neotest-vitest"] = {}
+      opts.adapters["neotest-jest"] = {}
     end,
     config = function(_, opts)
       if opts.adapters then
