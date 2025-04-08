@@ -538,4 +538,21 @@ return {
       opts.git.ignore = false -- Show files ignored by .gitignore
     end,
   },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot", -- optional: only loads on `:Copilot` command
+    event = "InsertEnter", -- optional: lazy load on insert
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-l>",
+          },
+        },
+        panel = { enabled = false },
+      })
+    end,
+  },
 }
