@@ -537,6 +537,9 @@ return {
       opts.git = opts.git or {}
       opts.git.ignore = false -- Show files ignored by .gitignore
     end,
+    config = function()
+      require("configs.nvim-tree")
+    end,
   },
   {
     "zbirenbaum/copilot.lua",
